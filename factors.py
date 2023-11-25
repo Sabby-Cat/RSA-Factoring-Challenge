@@ -1,0 +1,29 @@
+#!/usr/bin/python3
+"""factorize as many nrs as possible
+ into product of two smaller nrs."""
+from sys import argv
+
+
+def factorize(value):
+    """"print a simple descomposition of int > 1"""
+    t = 2
+    if value < 2:
+        return
+    print()
+    print(value, "<- value-before")
+    while value % t:
+        t += 1
+    print("{:.0f}={:.0f}*{:.0f}".format(value, value / t, t))
+    print(value, "<- value-after")
+    print()
+if len(argv) != 2:
+    exit()
+try:
+    with open(argv[1]) as file:
+        ln = file.readline()
+        while ln != "":
+            value = int(ln.split('\n')[0])
+            factorize(value)
+            ln = file.readline()
+except:
+    pass
