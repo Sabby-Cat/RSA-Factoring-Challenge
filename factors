@@ -16,8 +16,11 @@ def factorize(value):
     print("{:.0f}={:.0f}*{:.0f}".format(value, value / t, t))
     print(value, "<- value-after")
     print()
+
+
 if len(argv) != 2:
     exit()
+
 try:
     with open(argv[1]) as file:
         ln = file.readline()
@@ -25,5 +28,5 @@ try:
             value = int(ln.split('\n')[0])
             factorize(value)
             ln = file.readline()
-except:
+except IndexError:
     pass
